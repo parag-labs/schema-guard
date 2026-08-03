@@ -37,8 +37,8 @@ Breaking changes sort first so they're impossible to miss in CI logs.
 
 ## Known limitations / next
 
-- Works on a normalized field model — parsers for OpenAPI, protobuf, and SQL `ALTER TABLE` migrations feed into it next.
+- Works on a normalized field model - parsers for OpenAPI, protobuf, and SQL `ALTER TABLE` migrations feed into it next.
 - Type compatibility is exact-match; a widening-vs-narrowing type lattice (e.g. `int32 -> int64` is safe) is a natural refinement.
-- No "acknowledged breaking change" escape hatch yet — a `--allow-breaking` flag with a changelog entry would round it out.
+- No "acknowledged breaking change" escape hatch yet - a `--allow-breaking` flag with a changelog entry would round it out.
 
-Part of [parag-labs](https://github.com/parag-labs) — small, focused tools for building AI systems you can trust.
+Part of [parag-labs](https://github.com/parag-labs) - small, focused tools for building AI systems you can trust.
