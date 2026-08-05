@@ -15,7 +15,8 @@ Rules (consumer-facing backward compatibility):
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field as dc_field
+from dataclasses import dataclass
+from dataclasses import field as dc_field
 from enum import Enum
 
 
@@ -36,7 +37,7 @@ class Schema:
     fields: dict[str, Field] = dc_field(default_factory=dict)
 
     @classmethod
-    def of(cls, *fields: Field) -> "Schema":
+    def of(cls, *fields: Field) -> Schema:
         return cls({f.name: f for f in fields})
 
 
