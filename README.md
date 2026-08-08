@@ -41,4 +41,10 @@ Breaking changes sort first so they're impossible to miss in CI logs.
 - Type compatibility is exact-match; a widening-vs-narrowing type lattice (e.g. `int32 -> int64` is safe) is a natural refinement.
 - No "acknowledged breaking change" escape hatch yet - a `--allow-breaking` flag with a changelog entry would round it out.
 
+## Design notes
+
+- **[DESIGN.md](DESIGN.md)** - the backward-compatibility rules and why the asymmetry
+  (loosening is safe, tightening breaks), consumer-facing compatibility as the fixed
+  reference frame, the conservative structural-vs-semantic choice, and the non-goals.
+
 Part of [parag-labs](https://github.com/parag-labs) - small, focused tools for building AI systems you can trust.
