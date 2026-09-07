@@ -47,4 +47,15 @@ Breaking changes sort first so they're impossible to miss in CI logs.
   (loosening is safe, tightening breaks), consumer-facing compatibility as the fixed
   reference frame, the conservative structural-vs-semantic choice, and the non-goals.
 
+## Layout
+
+```
+schema-guard/
+├── python/   reference implementation + pytest suite
+├── csharp/   .NET 10 port - SchemaGuard.cs + tests
+├── java/     JDK 17+ port (Maven)
+└── DESIGN.md what counts as a breaking change, and the non-goals
+```
+
+
 Part of [parag-labs](https://github.com/parag-labs) - small, focused tools for building AI systems you can trust.
