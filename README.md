@@ -47,6 +47,27 @@ Breaking changes sort first so they're impossible to miss in CI logs.
   (loosening is safe, tightening breaks), consumer-facing compatibility as the fixed
   reference frame, the conservative structural-vs-semantic choice, and the non-goals.
 
+## How it works
+
+```mermaid
+flowchart LR
+  classDef proc fill:#eff6ff,stroke:#3b82f6,color:#1e3a8a
+  classDef good fill:#f0fdf4,stroke:#22c55e,color:#14532d
+  classDef bad fill:#fef2f2,stroke:#ef4444,color:#7f1d1d
+  classDef work fill:#faf5ff,stroke:#a855f7,color:#581c87
+  OLD["Old schema"]:::proc
+  NEW["New schema"]:::proc
+  DIFF["Diff + classify"]:::work
+  DEC{"Breaking?"}:::work
+  FAIL["Fail the PR"]:::bad
+  PASS["Merge"]:::good
+  OLD --> DIFF
+  NEW --> DIFF
+  DIFF --> DEC
+  DEC -->|yes| FAIL
+  DEC -->|no| PASS
+```
+
 ## Layout
 
 ```
