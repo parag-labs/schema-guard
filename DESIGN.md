@@ -8,6 +8,10 @@ to an API or data schema break the people consuming it?" - and the whole value i
 getting the backward-compatibility rules right and catching the break at the pull
 request instead of in production.
 
+![architecture](docs/diagrams/architecture.png)
+
+*The whole system on one page - source [docs/diagrams/architecture.svg](docs/diagrams/architecture.svg).*
+
 ## Problem and goals
 
 Every schema change looks harmless in the diff until a downstream consumer breaks on
