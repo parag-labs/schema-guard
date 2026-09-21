@@ -2,7 +2,7 @@
 
 **Stop breaking API changes at the PR, not in production.**
 
-A backend team renames a field or makes an optional field required, and three downstream services fall over. Code review didn't catch it because nobody diffs schemas by hand. SchemaGuard diffs two versions of a schema, classifies every change as **safe** or **breaking** using standard backward-compatibility rules, and **fails the PR** on a breaking change. Same rules in **Python, C#, and Java**.
+A backend team renames a field or makes an optional field required, and three downstream services fall over. Code review didn't catch it because nobody diffs schemas by hand. SchemaGuard diffs two versions of a schema, classifies every change as **safe** or **breaking** using standard backward-compatibility rules, and **fails the PR** on a breaking change. Same rules in **Python, C#, Java, Go, Rust, and TypeScript**.
 
 ## The rules (consumer backward compatibility)
 
@@ -25,15 +25,18 @@ python -m src.cli old_schema.json new_schema.json
 # FAIL: breaking schema changes detected   (exit 1)
 ```
 
-Breaking changes sort first so they're impossible to miss in CI logs.
+Breaking changes sort first so they're impossible to miss in CI logs. The sort is *stable* and keyed only on `(kind, field name)`: when one field both changes type and tightens `optional → required`, it emits two changes with the type change kept first, and every port reproduces that order exactly.
 
-## Three languages, one ruleset
+## Six languages, one ruleset
 
 | Language | Tests | Run |
 |----------|:-----:|-----|
 | Python | 8 | `cd python && pytest -q` |
 | C# (.NET 10) | 8 | `cd csharp && dotnet test` |
 | Java (17+) | 8 | `cd java && mvn test` |
+| Go (1.22+) | 14 | `cd go && go test ./...` |
+| Rust | 14 | `cd rust && cargo test` |
+| TypeScript | 14 | `cd ts && npm test` |
 
 ## Known limitations / next
 
@@ -75,6 +78,9 @@ schema-guard/
 ├── python/   reference implementation + pytest suite
 ├── csharp/   .NET 10 port - SchemaGuard.cs + tests
 ├── java/     JDK 17+ port (Maven)
+├── go/       Go port - schemaguard.go + tests
+├── rust/     Rust port - src/schemaguard.rs + tests
+├── ts/       TypeScript port - src/schemaguard.ts + Vitest suite
 └── DESIGN.md what counts as a breaking change, and the non-goals
 ```
 

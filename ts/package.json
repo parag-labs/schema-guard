@@ -1,0 +1,14 @@
+{
+  "name": "schema-guard",
+  "version": "0.1.0",
+  "description": "API schema diff + backward-compatibility classifier - TypeScript port.",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}
