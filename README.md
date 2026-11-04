@@ -32,11 +32,11 @@ Breaking changes sort first so they're impossible to miss in CI logs. The sort i
 | Language | Tests | Run |
 |----------|:-----:|-----|
 | Python (3.15) | 8 | `cd python && pytest -q` |
-| C# (.NET 10) | 8 | `cd csharp && dotnet test` |
-| Java (25 LTS) | 8 | `cd java && mvn test` |
+| C# (.NET 10, xUnit v3) | 8 | `cd csharp && dotnet test` |
+| Java (25 LTS, JUnit 6) | 8 | `cd java && mvn test` |
 | Go (1.27+) | 14 | `cd go && go test ./...` |
 | Rust (1.99+, edition 2024) | 14 | `cd rust && cargo test` |
-| TypeScript (Node 26 LTS) | 14 | `cd ts && npm test` |
+| TypeScript 7 (Node 26 LTS) | 14 | `cd ts && npm test` |
 
 ## Known limitations / next
 
