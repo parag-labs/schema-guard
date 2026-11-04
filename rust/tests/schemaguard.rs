@@ -1,4 +1,4 @@
-use schema_guard::{diff, has_breaking, Change, ChangeKind, Field, Schema};
+use schema_guard::{Change, ChangeKind, Field, Schema, diff, has_breaking};
 
 fn find<'a>(changes: &'a [Change], field: &str) -> Option<&'a Change> {
     changes.iter().find(|c| c.field == field)

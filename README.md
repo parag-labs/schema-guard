@@ -31,12 +31,12 @@ Breaking changes sort first so they're impossible to miss in CI logs. The sort i
 
 | Language | Tests | Run |
 |----------|:-----:|-----|
-| Python | 8 | `cd python && pytest -q` |
+| Python (3.15) | 8 | `cd python && pytest -q` |
 | C# (.NET 10) | 8 | `cd csharp && dotnet test` |
-| Java (17+) | 8 | `cd java && mvn test` |
-| Go (1.22+) | 14 | `cd go && go test ./...` |
-| Rust | 14 | `cd rust && cargo test` |
-| TypeScript | 14 | `cd ts && npm test` |
+| Java (25 LTS) | 8 | `cd java && mvn test` |
+| Go (1.27+) | 14 | `cd go && go test ./...` |
+| Rust (1.99+, edition 2024) | 14 | `cd rust && cargo test` |
+| TypeScript (Node 26 LTS) | 14 | `cd ts && npm test` |
 
 ## Known limitations / next
 
@@ -77,7 +77,7 @@ flowchart LR
 schema-guard/
 ├── python/   reference implementation + pytest suite
 ├── csharp/   .NET 10 port - SchemaGuard.cs + tests
-├── java/     JDK 17+ port (Maven)
+├── java/     JDK 25+ port (Maven)
 ├── go/       Go port - schemaguard.go + tests
 ├── rust/     Rust port - src/schemaguard.rs + tests
 ├── ts/       TypeScript port - src/schemaguard.ts + Vitest suite

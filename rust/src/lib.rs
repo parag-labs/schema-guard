@@ -16,4 +16,4 @@
 
 pub mod schemaguard;
 
-pub use schemaguard::{diff, has_breaking, Change, ChangeKind, Field, Schema};
+pub use schemaguard::{Change, ChangeKind, Field, Schema, diff, has_breaking};
