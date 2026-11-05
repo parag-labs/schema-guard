@@ -9,6 +9,10 @@ All notable changes to this project are documented here. Format follows [Keep a 
 - Toolchains: Python 3.15, Java 25 LTS, Go 1.27, Rust 1.99 (edition 2024), Node 26 LTS; .NET stays on 10 (pinned via `global.json`). CI actions moved to their latest major versions.
 - Test/tooling libraries: xUnit v3 (4.x, on Microsoft.Testing.Platform), JUnit 6, Maven Surefire 3.6, TypeScript 7, Vitest 5.
 
+### Fixed
+
+- The documented Python CLI command (`cd python && python -m src.cli old.json new.json`) failed with `ModuleNotFoundError`; it now runs, as does `python -m cli` from `python/src`. CLI tests cover both.
+
 ## [0.1.0] - 2026-08-09
 
 First public release. schema diffing that classifies changes safe/breaking and fails the PR on a break, in Python, C#, and Java.

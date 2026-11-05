@@ -1,6 +1,7 @@
 """SchemaGuard CLI: fail the build when a schema change is backward-incompatible.
 
-    python -m cli old.json new.json
+    cd python && python -m src.cli old.json new.json
+    cd python/src && python -m cli old.json new.json
 
 Each JSON file is {"fields": [{"name","type","required"}, ...]}.
 """
@@ -10,7 +11,10 @@ from __future__ import annotations
 import json
 import sys
 
-from schemaguard import Field, Schema, diff, has_breaking
+try:
+    from .schemaguard import Field, Schema, diff, has_breaking
+except ImportError:  # run as a top-level module (`python -m cli` from src/)
+    from schemaguard import Field, Schema, diff, has_breaking
 
 
 def load(path: str) -> Schema:

@@ -31,7 +31,7 @@ Breaking changes sort first so they're impossible to miss in CI logs. The sort i
 
 | Language | Tests | Run |
 |----------|:-----:|-----|
-| Python (3.15) | 8 | `cd python && pytest -q` |
+| Python (3.15) | 11 | `cd python && pytest -q` |
 | C# (.NET 10, xUnit v3) | 8 | `cd csharp && dotnet test` |
 | Java (25 LTS, JUnit 6) | 8 | `cd java && mvn test` |
 | Go (1.27+) | 14 | `cd go && go test ./...` |
